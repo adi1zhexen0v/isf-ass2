@@ -32,22 +32,12 @@ const decryptData = (encryptedData, privateKey) => {
 const { publicKey, privateKey } = generateKeyPair();
 const data = "Something...";
 
-console.log("================================================================\n");
-
 const signature = createSignature(data, privateKey);
-console.log(`Sign: ${signature}\n`);
-
+console.log(`Sign: ${signature}`);
 const isValidSignature = verifySignature(data, signature, publicKey);
 console.log(`Sign ${isValidSignature ? "is" : "is not"} valid\n`);
 
-console.log("================================================================\n\n\n");
-
-console.log("================================================================\n");
-
 const encryptedData = encryptData(data, publicKey);
 console.log(`Encrypted data: ${encryptedData}\n`);
-
 const decryptedData = decryptData(encryptedData, privateKey);
 console.log(`Decrypted data: ${decryptedData}\n`);
-
-console.log("================================================================");
